@@ -1,7 +1,15 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Depends
+from sqlalchemy.orm import Session
+from db import SessionLocal
+from Routers import train
 
 app = FastAPI()
 
+# Dependency
+
+
+app.include_router(train.router)
+
 @app.get("/")
-def welcome():
-    return f" Welcome to to ISSM Railway Ticketing Systems"
+def root():
+    return {"message": "Railway Ticketing API Running"}
