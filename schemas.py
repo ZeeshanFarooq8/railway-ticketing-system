@@ -1,4 +1,6 @@
 from pydantic import BaseModel
+from pydantic import BaseModel, EmailStr
+from datetime import datetime
 
 class TrainCreate(BaseModel):
     name: str
@@ -29,3 +31,34 @@ class RouteOut(BaseModel):
 
     class Config:
         from_attributes = True  # only this
+
+
+class PassengerCreate(BaseModel):
+    name: str
+    age: int
+    email: EmailStr
+
+class PassengerOut(BaseModel):
+    id: int
+    name: str
+    age: int
+    email: EmailStr
+
+    class Config:
+        from_attributes = True
+
+
+class TicketCreate(BaseModel):
+    passenger_id: int
+    schedule_id: int
+    seat_number: str
+
+class TicketOut(BaseModel):
+    id: int
+    passenger_id: int
+    schedule_id: int
+    seat_number: str
+    booking_time: datetime
+
+    class Config:
+        from_attributes = True

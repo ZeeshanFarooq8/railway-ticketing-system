@@ -18,7 +18,7 @@ class Route(Base):
     id = Column(Integer, primary_key=True, index=True)
     train_id = Column(Integer, ForeignKey("trains.id"))
     source = Column(String)
-    destination = Column(String)
+    fare = Column(Integer)
     distance_km = Column(Integer)
 
     train = relationship("Train", back_populates="routes")
@@ -43,7 +43,7 @@ class Passenger(Base):
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String)
     email = Column(String, unique=True)
-    phone = Column(String)
+    age  = Column(Integer)
 
     tickets = relationship("Ticket", back_populates="passenger")
 
