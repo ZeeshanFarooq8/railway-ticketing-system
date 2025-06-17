@@ -21,4 +21,4 @@ def create_train(train: schemas.TrainCreate, db: Session = Depends(get_db)):
 
 @router.get("/", response_model=list[schemas.TrainOut])
 def get_all_trains(db: Session = Depends(get_db)):
-    return db.query(models.Train).all()
+    return db.query(Model.Train).all()
