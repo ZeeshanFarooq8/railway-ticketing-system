@@ -18,8 +18,9 @@ class Route(Base):
     id = Column(Integer, primary_key=True, index=True)
     train_id = Column(Integer, ForeignKey("trains.id"))
     source = Column(String)
+    destination = Column(String)
     fare = Column(Integer)
-    distance_km = Column(Integer)
+    duration = Column(String)
 
     train = relationship("Train", back_populates="routes")
     schedules = relationship("Schedule", back_populates="route")

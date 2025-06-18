@@ -28,3 +28,10 @@ def book_ticket(ticket: TicketCreate, db: Session = Depends(get_db)):
 @router.get("/", response_model=list[TicketOut])
 def get_all_tickets(db: Session = Depends(get_db)):
     return db.query(Ticket).all()
+
+@router.get("/{ticket_id}", response_model=TicketOut)
+def get_ticket_by_id(ticket_id: int, db: Session = Depends(get_db)):
+    ticket = db.query(Ticket).filter(Ticket.id == ticket_id).first()
+    if not ticket:
+        raise HTTPException(status_code=404, detail="Ticket not found")
+    return ticket

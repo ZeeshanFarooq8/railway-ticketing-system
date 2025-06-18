@@ -15,3 +15,51 @@ services:
 
 volumes:
   postgres_data:
+#version: '3.9'
+#
+#services:
+#  train-service:
+#    build: ./train-service
+#    ports:
+#      - "8001:8001"
+#    depends_on:
+#      - db
+#    environment:
+#      - DB_URL=postgresql://railway_user:railway_pass@railway_db/train_db
+#
+#  passenger-service:
+#    build: ./passenger-service
+#    ports:
+#      - "8002:8002"
+#    depends_on:
+#      - db
+#    environment:
+#      - DB_URL=postgresql://railway_user:railway_pass@railway_db/passenger_db
+#
+#  ticket-service:
+#    build: ./ticket-service
+#    ports:
+#      - "8003:8003"
+#    depends_on:
+#      - db
+#    environment:
+#      - DB_URL=postgresql://railway_user:railway_pass@railway_db/ticket_db
+#
+#  db:
+#    image: postgres:15
+#    environment:
+#      POSTGRES_USER: railway_user
+#      POSTGRES_PASSWORD: railway_pass
+#      POSTGRES_DB: railway_db
+#    ports:
+#      - "5432:5432"
+#    volumes:
+#      - postgres_data:/var/lib/postgresql/data
+#
+#  api-gateway:
+#    build: ./api-gateway
+#    ports:
+#      - "8000:8000"
+#
+#volumes:
+#  postgres_data:

@@ -62,3 +62,19 @@ class TicketOut(BaseModel):
 
     class Config:
         from_attributes = True
+
+class ScheduleCreate(BaseModel):
+    train_id: int
+    route_id: int
+    departure_time: datetime
+    arrival_time: datetime
+
+class ScheduleOut(BaseModel):
+    id: int
+    train_id: int
+    route_id: int
+    departure_time: datetime
+    arrival_time: datetime
+
+    class Config:
+        from_attributes = True
